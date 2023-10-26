@@ -267,6 +267,8 @@ The PSO parameters are tweaked to ensure better performance. However, there are 
 
 4. Termination might be required to avoid infinite loops. i.e. it should take less than 10 attempts to estimate the current. Or else, it indicates some tweaks in parameters.
 
+5. Adjust number of particles and other parameters as the attempts increase for better performance in non-linear circuit problems. 
+
 ## Summary:
 
 Overall, the PSO algorithm is useful for this particular problem even when non-linear components are added since it treats the fitness function as a blackbox. It's problem independent but can be modified to suit the problem better for optimized performance.
