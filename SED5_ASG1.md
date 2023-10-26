@@ -143,7 +143,7 @@ The idea is as follow:
 
 	Be careful choosing the initial values since if they are too large, the next estimated current value will be negative and smaller than **-Is** (in this diode example), then the voltage will be ***-inf***. The algorithm will not work.
 
-2. Calculate the slope, $d= \dfrac{\Delta voltage}{\Delta current}$  ***Δvoltage/Δcurrent***, which is essentially $\dfrac {J1-J2} {I1-I2}$.
+2. Calculate the slope, $d= \dfrac{\Delta voltage}{\Delta current}$, which is essentially $\dfrac {J1-J2} {I1-I2}$.
 
 3. Calculate the new x (current) where the line of the slope intercept horizontal line of the true voltage value (y) by calculating the step size using the slope.
 
