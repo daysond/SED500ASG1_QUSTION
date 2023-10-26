@@ -133,7 +133,7 @@ This code has given the cost function some sort of intelligence. It "learns" fro
 
 Although it's used in various numerical methods, in machine learning, adaptive learning rate is also commonly used.
 
-In my opinion, it's some kind of learning because it doesn't adjust the step size by some fix amount, it 'knows' how to converge to the solution.
+In my opinion, it's some kind of learning because it doesn't adjust the step size by a fixed amount or rate, it 'knows' how to converge to the solution.
 
 The code below is the implementation for the diode-resistor circuit.
 
