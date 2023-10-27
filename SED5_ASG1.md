@@ -160,7 +160,7 @@ Performance wise, it takes a maximum of 10 and a minimum of 3 iterations.
 
 In addition, the original costfunction and the bi-section search method get stuck not long after reverse bias starts. This algorithm somehow is able to find the solution by only using 4 iterations.
 
-<img src="https://raw.githubusercontent.com/daysond/Diode/master/Diode/Diode/Capture.PNG?token=GHSAT0AAAAAACHH2QZQCCDB6H77FMWS4QX6ZJZ5GCQ" alt="drawing" width="600"/>
+<img src="./diode-resistor.PNG" alt="drawing" width="600"/>
 
 ```cpp
 void AACostFunctionV(Component* component[], const int NUM, double& current, const double Is, const double voltage) {
@@ -223,7 +223,7 @@ The idea is that, we put a particle swarm into the search space, give them behav
 
 This image shows the major steps of the PSO algortihm:
 
-![img](https://www.researchgate.net/publication/329007429/figure/fig3/AS:693775361929219@1542420344803/Basic-structure-of-the-particle-swarm-optimization-PSO-algorithm.png)
+![PSO-Algorithm](PSO.png)
 
 
 
