@@ -2,8 +2,6 @@
 
 ## 1. You may notice that the cost function is based on Euler's method. What other method(s) might be applied to enable it to run more efficiently?
 
----
-
 The idea of Euler's Method is bascially adding the ***step-size * slope*** to the previous value to estimate the next value.
 However, in this problem, the slope of the voltage equation is unknown to us.  But we could calculate the slope of the error, the estimate the next step-size so that the error will be 0.
 This assumes that the change in current is porpotional to the change in voltage.
@@ -120,7 +118,6 @@ void AnalogCircuit::CostFunction(double &current, double voltage) {
 
 
 ## 2. You may notice that the cost function has no intelligence. It does not learn. This heuristic algorithm does not comply with the principles of machine learning. How might you add intelligence to our cost function to enable it to run more efficiently?
----
 
 In the previous question, we have a couple lines of code to calculate the step-size.
 
@@ -161,6 +158,8 @@ Performance wise, it takes a maximum of 10 and a minimum of 3 iterations.
 In addition, the original costfunction and the bi-section search method get stuck not long after reverse bias starts. This algorithm somehow is able to find the solution by only using 4 iterations.
 
 <img src="./diode-resistor.PNG" alt="drawing" width="600"/>
+
+Below is the implementation of the Adaptive Learing Step method:
 
 ```cpp
 void AACostFunctionV(Component* component[], const int NUM, double& current, const double Is, const double voltage) {
@@ -208,8 +207,9 @@ void AACostFunctionV(Component* component[], const int NUM, double& current, con
 
 
 ## 3. Devise a completely different way to implement the cost function. Is there some quicker way of guessing the present current knowing the previous voltage and current?
----
+
 ## Basic Idea:
+
 The essense of this problem is to find a current value that minimize the difference between the estimated sum of voltage and the true voltage value.
 It is exactly an optimization problem, in which the error is optimized by searching for the global minimum.
 
@@ -356,7 +356,6 @@ def PSO():
 
 
 ## 4. You may not like the way this project was designed and implemented. What changes would you suggest and why (ie. graphics, circuit components, using C++, ...).
----
 
 I would modify the architecture/structure of the project. 
 
