@@ -272,7 +272,7 @@ The PSO parameters are tweaked to ensure better performance. However, there are 
 ## Summary:
 
 Overall, the PSO algorithm is useful for this particular problem even when non-linear components are added since it treats the fitness function as a blackbox. It's problem independent but can be modified to suit the problem better for optimized performance.
-In the RLC and diode-resistor circuit examples, the PSO algorithm might not outperform the adaptive step-size algorithm. However, as the dimension increases, such as when the current diverges and we have more than one unknow current value, PSO could be a better choice.
+In the RLC and diode-resistor circuit examples, the PSO algorithm might not outperform the adaptive step-size algorithm. However, as the dimension increases, such as when the current diverges and we have more than one unknown current value, PSO could be a better choice.
 
 ## PSO Implementation in Python (for RLC)
 
@@ -359,7 +359,7 @@ def PSO():
 
 I would modify the architecture/structure of the project. 
 
-The project is not very modularized. For instance, functions related to the openGL library are scatters in **main** and the **AnalogCircuit** class. What I would do is create a class, say **Renderer**, for all the openGL related functions. In the **Renderer** class, we could have methods such as **SetupScreen(), DrawCoordinate(), StartRendering()** etc. 
+The project is not very modularized. For instance, functions related to the openGL library are scattered in **main** and the **AnalogCircuit** class. What I would do is create a class, say **Renderer**, for all the openGL related functions. In the **Renderer** class, we could have methods such as **SetupScreen(), DrawCoordinate(), StartRendering()** etc. 
 
 The **AnalogCircuit** class kind of violates the '***S***' in the ***SOLID*** principle. Inside the **run()** method, it calculates the current using the voltage and renders the coordinates as well. And in the **CostFunction()**, it also display the voltage point for each component. For interaction with openGL, we could introduce an interface, say **CircuitVisualizer** between the **AnalogCircuit** Component and the **Renderer** Component and implement the oberver pattern. When the circuit starts, **CircuitVisualizer** will draw the axises, tickers and the legends. Then, when the circuit is running, it will draw the voltage values of each component. The **CircuitVisualizer** will be observing the **AnalogCircuit** and react to it.
 
