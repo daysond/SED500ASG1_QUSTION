@@ -142,7 +142,7 @@ The idea is as follow:
 
 2. Calculate the slope, $d= \dfrac{\Delta voltage}{\Delta current}$, which is essentially $\dfrac {J1-J2} {I1-I2}$.
 
-3. Calculate the new x (current) where the line of the slope intercept horizontal line of the true voltage value (y) by calculating the step size using the slope.
+3. Calculate the new x (current), where the line of the slope intercepts the horizontal line of the true voltage value (y), by calculating the step size using the slope.
 
 	The step size alpha can be calculated using $\alpha = \dfrac{J2}{d}$.
 
@@ -255,7 +255,7 @@ The algorithm keeps running until it runs out of iteration or criteria is met.
 
 If criteria is not met and the iteration has run out, the algorithm will run again and usually it will be able to find the optimum in the second run. 
 
-## Futher optimization:
+## Further optimization:
 
 The PSO parameters are tweaked to ensure better performance. However, there are some isssues and room for improvement.
 
