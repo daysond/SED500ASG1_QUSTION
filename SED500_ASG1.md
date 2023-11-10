@@ -3,9 +3,8 @@
 ## 1. You may notice that the cost function is based on Euler's method. What other method(s) might be applied to enable it to run more efficiently?
 
 The idea of Euler's Method is bascially adding the ***step-size * slope*** to the previous value to estimate the next value.
-However, in this problem, the slope of the voltage equation is unknown to us.  But we could calculate the slope of the error, the estimate the next step-size so that the error will be 0.
-This assumes that the change in current is porpotional to the change in voltage.
-Although this is not yet tested on complex circuits where the relationship between current and voltage might not be linear, it dramatically reduces the number of iterations that the algorithm takes to estimate the current for this simple circuit.
+However, in this problem, the slope of the voltage equation is unknown to us.  But we could calculate the slope of the error to estimate the next step-size so that the error will be 0.
+This assumes that the change in current is porpotional to the change in voltage linearly, it dramatically reduces the number of iterations that the algorithm takes to estimate the current for this simple circuit.
 The original function takes around 60 loops in average and this one only takes 3 loops.
 
 ```cpp
@@ -126,7 +125,7 @@ if (J1 != J0)
 	alpha = (J1 * alpha) / (J1 - J0); 
 ```
 
-This code has given the cost function some sort of intelligence. It "learns" from the error and adjust its step size. **But it doesn't work for non-linear components.**
+This code has given the cost function some sort of intelligence since it "learns" from the error and adjust its step size. **But it doesn't work for non-linear components.**
 
 Although it's used in various numerical methods, in machine learning, adaptive learning rate is also commonly used.
 
@@ -136,7 +135,7 @@ The code below is the implementation for the diode-resistor circuit.
 
 The idea is as follow:
 
-1. Have two different initial guess of the current **(I1, I2)** and the corresponding voltage values (V1, V2) and the errors **(J1, J2)**.
+1. Have two different initial guesses of the current **(I1, I2)**, then calculate the corresponding voltage values (V1, V2) and the errors **(J1, J2)**.
 
 	Be careful choosing the initial values since if they are too large, the next estimated current value will be negative and smaller than **-Is** (in this diode example), then the voltage will be ***-inf***. The algorithm will not work.
 
@@ -219,7 +218,7 @@ The PSO algorithm is one of the nature inspired optimization algorithm. It mimic
 For instance, while a bird flying and searching randomly for food, all birds in the flock can share their discovery and help the entire flock get the best hunt.
 Or, a mumuration of starlings trying to mimimize engery use in traveling through space by observing the directions and velocities of other starlings around.
 
-The idea is that, we put a particle swarm into the search space, give them behaviours which depends on the fitness function. The particals can exchange intel and will move towards the best location so far in a ceratin velocity while keep discovering better options on the way. 
+The idea is that, we put a particle swarm into the search space, give them behaviours which depends on the fitness function. The particals can exchange intel and will move towards the best location so far in a ceratin velocity while they keep discovering better options on the way. 
 
 This image shows the major steps of the PSO algortihm:
 
@@ -243,7 +242,7 @@ In the **PSO()** function code, we initialize the PSO parameters:
 - w: particle inertia, how much should the particle move towards the best potision so far
 - c1 & c2: particle and swarm learning rate
 
-Then it will run the algorithm by putting N particles into the search space randomly and initialize their velocities.
+Then, we run the algorithm by putting N particles into the search space randomly and initialize their velocities.
 
 The best positions (x and y) of both individual particals (local) and the swarm (global) is updated.
 
